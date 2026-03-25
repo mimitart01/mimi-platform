@@ -540,7 +540,34 @@ footer {
 </style>
 </head>
 <body>
-
+<!-- 준비중 오버레이 -->
+<div id="coming-soon" style="
+  position:fixed; inset:0; z-index:99999;
+  background:#05030f;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center; padding:24px;
+  font-family:'Noto Serif KR',serif;
+">
+  <div style="font-size:56px; margin-bottom:24px; animation:float 3s ease-in-out infinite;">🔮</div>
+  <div style="font-size:11px; letter-spacing:4px; color:#7b4fd4; margin-bottom:14px;">MIMI MYEONGNI</div>
+  <h1 style="font-size:clamp(28px,6vw,48px); color:#c9a84c; margin-bottom:16px; letter-spacing:0.1em;">준비중입니다</h1>
+  <p style="font-size:14px; color:#9b7ec8; line-height:2; margin-bottom:36px;">
+    더 나은 서비스로 곧 찾아뵙겠습니다<br>
+    <span style="color:#7a6a9a; font-size:12px;">AI 사주 · 타로 · 운세 플랫폼 오픈 예정</span>
+  </p>
+  <a href="https://app.mimitarot.co.kr" style="
+    padding:13px 32px; border-radius:50px;
+    background:linear-gradient(135deg,#7b4fd4,#c9a84c);
+    color:#05030f; font-size:14px; font-weight:700;
+    text-decoration:none; letter-spacing:1px;
+    box-shadow:0 0 30px rgba(123,79,212,0.4);
+  ">✦ 타로 앱 바로가기</a>
+  <p style="margin-top:20px; font-size:11px; color:#3d2b6e;">app.mimitarot.co.kr</p>
+  <style>
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  </style>
+</div>
 <!-- 상단 공지 바 -->
 <div class="topbar">
   <div class="topbar-inner">
