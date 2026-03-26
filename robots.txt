@@ -1,0 +1,9 @@
+# 미미타로앱 robots.txt
+# https://mimitarot.co.kr
+
+User-agent: *
+Allow: /
+
+# 사이트맵 위치
+Sitemap: https://mimitarot.co.kr/sitemap.xml
+Sitemap: https://www.mimitarot.co.kr/sitemap.xml

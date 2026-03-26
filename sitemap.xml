@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- 메인 랜딩페이지 -->
+  <url>
+    <loc>https://mimitarot.co.kr/</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- www 서브도메인 -->
+  <url>
+    <loc>https://www.mimitarot.co.kr/</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 앱 메인 -->
+  <url>
+    <loc>https://app.mimitarot.co.kr/</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 앱 타로 리딩 -->
+  <url>
+    <loc>https://app.mimitarot.co.kr/tarot</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 앱 리딩 기록 -->
+  <url>
+    <loc>https://app.mimitarot.co.kr/history</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 앱 백과사전 -->
+  <url>
+    <loc>https://app.mimitarot.co.kr/encyclopedia</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
