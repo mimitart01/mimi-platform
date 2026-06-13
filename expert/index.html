@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>눈썹도인 이진훈 — 미미타로 전문가 상담</title>
+<meta name="description" content="50년 명리 내공의 눈썹도인 이진훈이 AI 타로·사주 리딩을 직접 감수하는 전문가 상담 서비스.">
+<meta property="og:title" content="눈썹도인 이진훈 — 미미타로 전문가 상담">
+<meta property="og:description" content="50년 명리 내공의 눈썹도인이 AI 리딩 결과를 직접 감수합니다.">
+<meta property="og:url" content="https://mimitarot.co.kr/expert/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<meta name="theme-color" content="#0e0a05">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Cinzel:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #0e0a05;
+    --paper: #f5f0e8;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --red: #8b1a1a;
+    --red-light: #c0392b;
+    --smoke: #2a1f14;
+    --mist: rgba(201,168,76,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Noto Sans KR', sans-serif;
+    overflow-x: hidden;
+  }
+
+  a { text-decoration: none; }
+
+  /* ── TOP NAV ── */
+  .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(14,10,5,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .top-nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .back-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold-light);
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: opacity 0.2s;
+  }
+
+  .back-link:hover { opacity: 0.7; }
+
+  .top-nav-brand {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+  }
+
+  /* ── EXPERT WRAP ── */
+  .expert-wrap {
+    position: relative;
+    background: linear-gradient(180deg, #0e0a05 0%, #1a0f08 40%, #0e0a05 100%);
+    padding: 70px 0 120px;
+    overflow: hidden;
+  }
+
+  .expert-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse 60% 40% at 20% 50%, rgba(139,26,26,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 80% 30%, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .expert-container {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .expert-header {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+
+  .expert-eyebrow {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 20px;
+  }
+
+  .expert-header h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(28px, 5vw, 46px);
+    font-weight: 900;
+    color: var(--paper);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .expert-header h1 span { color: var(--gold); }
+
+  .expert-header p {
+    font-size: 15px;
+    color: rgba(245,240,232,0.55);
+    letter-spacing: 1px;
+  }
+
+  .profile-card {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 60px;
+    align-items: start;
+    margin-bottom: 80px;
+  }
+
+  @media (max-width: 768px) {
+    .profile-card { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .profile-photo-wrap { position: relative; }
+
+  .profile-photo-frame {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .profile-photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, var(--gold), var(--red), var(--gold));
+    border-radius: 6px;
+    z-index: 0;
+  }
+
+  .profile-photo-frame img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: block;
+    filter: sepia(15%) contrast(1.05);
+    border-radius: 4px;
+  }
+
+  .profile-badge {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #8b1a1a, #c0392b);
+    border: 1px solid var(--gold);
+    padding: 10px 28px;
+    border-radius: 2px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 2;
+    box-shadow: 0 8px 30px rgba(139,26,26,0.5);
+  }
+
+  .profile-badge .title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold-light);
+    display: block;
+  }
+
+  .profile-badge .subtitle {
+    font-size: 11px;
+    color: rgba(232,213,163,0.7);
+    letter-spacing: 3px;
+    display: block;
+    margin-top: 2px;
+  }
+
+  .profile-info { padding-top: 10px; }
+
+  .profile-name-wrap {
+    margin-bottom: 16px;
+  }
+
+  .profile-name-main {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 900;
+    color: var(--gold);
+    display: block;
+    line-height: 1.2;
+  }
+
+  .profile-name-sub {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(245,240,232,0.6);
+    display: block;
+    margin-top: 4px;
+    letter-spacing: 2px;
+  }
+
+  .profile-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 28px;
+  }
+
+  .field-tag {
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+  }
+
+  .career-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .career-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: rgba(245,240,232,0.75);
+    line-height: 1.5;
+  }
+
+  .career-list li::before {
+    content: '▸';
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .books-wrap {
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-left: 3px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 2px;
+  }
+
+  .books-wrap .books-title {
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .books-wrap p {
+    font-size: 12.5px;
+    color: rgba(245,240,232,0.6);
+    line-height: 1.9;
+  }
+
+  .youtube-section { margin-bottom: 80px; }
+
+  .section-label {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .section-label h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 6px;
+  }
+
+  .section-label p {
+    font-size: 13px;
+    color: rgba(245,240,232,0.45);
+    letter-spacing: 1px;
+  }
+
+  .youtube-frame {
+    position: relative;
+    max-width: 780px;
+    margin: 0 auto;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.2);
+  }
+
+  .youtube-frame::before {
+    content: '';
+    display: block;
+    padding-top: 56.25%;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 700px;
+    margin: 0 auto 56px;
+  }
+
+  @media (max-width: 768px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
+  .service-card {
+    position: relative;
+    background: linear-gradient(160deg, #1a0f08, #0e0a05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px;
+    padding: 32px 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .service-card:hover {
+    border-color: rgba(201,168,76,0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+
+  .service-card:hover::before { opacity: 1; }
+
+  .service-card.featured {
+    border-color: var(--gold);
+    background: linear-gradient(160deg, #1f1208, #140a04);
+  }
+
+  .service-card.featured::before { opacity: 1; }
+
+  .featured-badge {
+    position: absolute;
+    top: 14px; right: 14px;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+  }
+
+  .service-icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .service-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 10px;
+  }
+
+  .service-desc {
+    font-size: 13px;
+    color: rgba(245,240,232,0.55);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .service-price {
+    font-family: 'Cinzel', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .service-delivery {
+    font-size: 11px;
+    color: rgba(245,240,232,0.4);
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+  }
+
+  .service-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-light);
+    font-size: 13px;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .service-btn:hover,
+  .service-card.featured .service-btn {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .flow-section {
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 4px;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .flow-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+  }
+
+  .flow-steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .flow-step .num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--gold);
+  }
+
+  .flow-step .label {
+    font-size: 12px;
+    color: rgba(245,240,232,0.6);
+    white-space: nowrap;
+  }
+
+  .flow-arrow {
+    color: rgba(201,168,76,0.4);
+    font-size: 18px;
+    margin: 0 4px;
+    padding-bottom: 18px;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 50px;
+  }
+
+  .divider::before,
+  .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3));
+  }
+
+  .divider::after {
+    background: linear-gradient(90deg, rgba(201,168,76,0.3), transparent);
+  }
+
+  .divider span {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: rgba(201,168,76,0.5);
+    white-space: nowrap;
+  }
+
+  /* ── FOOTER ── */
+  .expert-footer {
+    background: #0e0a02;
+    color: rgba(255,255,255,.4);
+    padding: 30px 24px;
+    text-align: center;
+    font-size: 11px;
+    line-height: 2;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .expert-footer a {
+    color: rgba(232,213,163,0.7);
+  }
+
+  .expert-footer a:hover { color: var(--gold); }
+
+  /* ── ORDER MODAL ── */
+  .order-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+  }
+
+  .order-modal-overlay.active { display: flex; }
+
+  .order-modal {
+    background: linear-gradient(160deg, #1f1208, #0e0a05);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 8px;
+    max-width: 460px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 32px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  }
+
+  .order-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    color: rgba(245,240,232,0.5);
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .order-modal-close:hover { color: var(--gold); }
+
+  .order-modal-header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .order-modal-header .eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 8px;
+  }
+
+  .order-modal-header h3 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 6px;
+  }
+
+  .order-modal-header .order-price {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .order-form-group { margin-bottom: 18px; }
+
+  .order-form-group label {
+    display: block;
+    font-size: 12px;
+    color: var(--gold-light);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .order-form-group .hint {
+    font-size: 11px;
+    color: rgba(245,240,232,0.4);
+    margin-top: 6px;
+    line-height: 1.6;
+  }
+
+  .order-modal input[type="text"],
+  .order-modal input[type="email"],
+  .order-modal input[type="tel"],
+  .order-modal input[type="date"],
+  .order-modal input[type="time"],
+  .order-modal textarea {
+    width: 100%;
+    padding: 11px 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 4px;
+    color: var(--paper);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.2s;
+  }
+
+  .order-modal input::placeholder,
+  .order-modal textarea::placeholder {
+    color: rgba(245,240,232,0.3);
+  }
+
+  .order-modal input:focus,
+  .order-modal textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+
+  .order-modal textarea {
+    resize: vertical;
+    min-height: 90px;
+    line-height: 1.6;
+  }
+
+  .birth-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .birth-row > div { flex: 1; }
+
+  .checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: rgba(245,240,232,0.55);
+  }
+
+  .checkbox-row input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    accent-color: var(--gold);
+  }
+
+  .order-submit-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border: none;
+    border-radius: 4px;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .order-submit-btn:hover { opacity: 0.9; }
+
+  .order-modal-notice {
+    margin-top: 14px;
+    font-size: 11px;
+    color: rgba(245,240,232,0.4);
+    line-height: 1.8;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- 상단 네비게이션 -->
+<div class="top-nav">
+  <div class="top-nav-inner">
+    <a href="/" class="back-link">← 미미타로 홈으로</a>
+    <span class="top-nav-brand">미미타로 · MIMI-TAROT</span>
+  </div>
+</div>
+
+<section class="expert-wrap">
+  <div class="expert-container">
+
+    <div class="expert-header">
+      <div class="expert-eyebrow">✦ 전문가 상담 ✦</div>
+      <h1>AI를 넘어선 <span>진짜 전문가</span>의 해석</h1>
+      <p>50년 명리 내공이 AI 리딩 결과를 완성합니다</p>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-photo-wrap">
+        <div class="profile-photo-frame">
+          <img src="https://pub-7fc2c272c90746558b6db7d90ce67837.r2.dev/KakaoTalk_20260519_132825690.jpg" alt="눈썹도인 이진훈" />
+        </div>
+        <div class="profile-badge">
+          <span class="title">눈썹도인</span>
+          <span class="subtitle">LEE JIN HOON</span>
+        </div>
+      </div>
+
+      <div class="profile-info">
+        <div class="profile-name-wrap">
+          <span class="profile-name-main">눈썹도인</span>
+          <span class="profile-name-sub">이진훈</span>
+        </div>
+
+        <div class="profile-fields">
+          <span class="field-tag">사주</span>
+          <span class="field-tag">관상</span>
+          <span class="field-tag">수상</span>
+          <span class="field-tag">타로</span>
+          <span class="field-tag">풍수지리</span>
+        </div>
+
+        <ul class="career-list">
+          <li>현 대한불교생활실천선교종 계룡산 자은사 주지</li>
+          <li>현 삼관전통문화원 원장</li>
+          <li>현 국립한밭대학교 평생교육원 사주명리상담사과정 강사</li>
+          <li>국립공주대학교 대학원 역리학 석사</li>
+          <li>대전광역시 동구 사무관 명예퇴직</li>
+          <li>의료법인 청양훈요양병원장 역임</li>
+          <li>전 국가평생교육진흥원 평생학습계좌제 홍보대사 활동</li>
+        </ul>
+
+        <div class="books-wrap">
+          <div class="books-title">📚 저 서</div>
+          <p>눈썹도인과 함께하는 명리여행 · 상리 · 통변의 기술 · 내가 보는 사주여행</p>
+          <div class="books-title" style="margin-top:12px;">📚 역 서</div>
+          <p>자평수언 1·2·3·4 외 다수</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"><span>✦ 영상으로 만나보세요 ✦</span></div>
+
+    <div class="youtube-section">
+      <div class="section-label">
+        <h2>눈썹도인의 명리 이야기</h2>
+        <p>50년 내공의 명리학을 직접 확인해보세요</p>
+      </div>
+      <div class="youtube-frame">
+        <video id="expert-video" controls playsinline
+          style="position:absolute;inset:0;width:100%;height:100%;background:#000;object-fit:contain;">
+          브라우저가 동영상을 지원하지 않습니다.
+        </video>
+      </div>
+      <div style="text-align:center;margin-top:28px;">
+        <button onclick="playNext()" style="
+          background:transparent;
+          border:1px solid rgba(201,168,76,0.4);
+          color:#c9a84c;
+          font-size:13px;
+          padding:8px 24px;
+          border-radius:2px;
+          cursor:pointer;
+          font-family:'Noto Sans KR',sans-serif;
+          letter-spacing:1px;
+          transition:all 0.2s;
+        " onmouseover="this.style.background='rgba(201,168,76,0.15)'"
+           onmouseout="this.style.background='transparent'">
+          ▶ 다른 영상 보기
+        </button>
+      </div>
+    </div>
+
+    <div class="divider"><span>✦ 상담 서비스 ✦</span></div>
+
+    <div class="section-label" style="margin-bottom:32px;">
+      <h2>전문가 상담 서비스</h2>
+      <p>AI 리딩 + 전문가 감수로 완성하는 나만의 운세 해석</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card featured">
+        <div class="featured-badge">인기</div>
+        <span class="service-icon">🔮</span>
+        <div class="service-name">전문 사주 감수</div>
+        <div class="service-desc">
+          AI가 분석한 사주 리딩을<br>
+          눈썹도인이 직접 감수하고<br>
+          깊이 있는 해석을 완성합니다
+        </div>
+        <div class="service-price">₩50,000</div>
+        <div class="service-delivery">48시간 이내 전달</div>
+        <button class="service-btn" onclick="openOrder('사주감수', 50000)">예약하기</button>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🎙️</span>
+        <div class="service-name">도인과의 1:1 상담</div>
+        <div class="service-desc">
+          눈썹도인과 직접 나누는<br>
+          깊이 있는 개인 맞춤<br>
+          심층 명리 상담
+        </div>
+        <div class="service-price">₩100,000</div>
+        <div class="service-delivery">일정 협의 후 진행</div>
+        <button class="service-btn" onclick="openOrder('1:1상담', 100000)">예약하기</button>
+      </div>
+
+    </div>
+
+    <div class="flow-section">
+      <div class="flow-title">✦ 예약 진행 순서 ✦</div>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="num">1</div>
+          <div class="label">서비스 선택</div>
+        </div>
+        <div class="flow-arrow">›</div>
+        <div class="flow-step">
+          <div class="num">2</div>
+          <div class="label">생년월일 입력</div>
+        </div>
+        <div class="flow-arrow">›</div>
+        <div class="flow-step">
+          <div class="num">3</div>
+          <div class="label">결제 완료</div>
+        </div>
+        <div class="flow-arrow">›</div>
+        <div class="flow-step">
+          <div class="num">4</div>
+          <div class="label">AI 초안 생성</div>
+        </div>
+        <div class="flow-arrow">›</div>
+        <div class="flow-step">
+          <div class="num">5</div>
+          <div class="label">전문가 감수</div>
+        </div>
+        <div class="flow-arrow">›</div>
+        <div class="flow-step">
+          <div class="num">6</div>
+          <div class="label">결과 전달</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="expert-footer">
+  © 2026 미미타로 (MIMITAROT). All rights reserved. · <a href="/">홈으로 돌아가기</a> · <a href="mailto:mimitart@gmail.com">문의하기</a>
+</footer>
+
+<!-- ── 예약 모달 ── -->
+<div class="order-modal-overlay" id="order-modal-overlay">
+  <div class="order-modal">
+    <button class="order-modal-close" onclick="closeOrderModal()" aria-label="닫기">×</button>
+
+    <div class="order-modal-header">
+      <div class="eyebrow">✦ 예약하기 ✦</div>
+      <h3 id="order-service-name">서비스명</h3>
+      <div class="order-price" id="order-service-price">₩0</div>
+    </div>
+
+    <form id="order-form">
+      <div class="order-form-group">
+        <label for="order-name">이름</label>
+        <input type="text" id="order-name" name="name" placeholder="홍길동" required />
+      </div>
+
+      <div class="order-form-group">
+        <label for="order-contact">연락처 (이메일 또는 휴대폰 번호)</label>
+        <input type="text" id="order-contact" name="contact" placeholder="example@email.com 또는 010-0000-0000" required />
+      </div>
+
+      <div class="order-form-group">
+        <label>생년월일 / 태어난 시간</label>
+        <div class="birth-row">
+          <div>
+            <input type="date" id="order-birth-date" name="birthDate" required />
+          </div>
+          <div>
+            <input type="time" id="order-birth-time" name="birthTime" />
+          </div>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="order-time-unknown" onchange="toggleBirthTime(this)" />
+          <label for="order-time-unknown" style="margin:0;color:inherit;font-size:12px;letter-spacing:0;">태어난 시간을 모릅니다</label>
+        </div>
+        <div class="hint">사주 계산에 사용되며, 모르실 경우 체크해주세요.</div>
+      </div>
+
+      <div class="order-form-group">
+        <label for="order-question">상담 내용 / 질문</label>
+        <textarea id="order-question" name="question" placeholder="궁금한 점이나 고민을 자세히 적어주시면 더 정확한 해석을 받을 수 있습니다." required></textarea>
+      </div>
+
+      <button type="submit" class="order-submit-btn">결제하고 예약하기</button>
+
+      <div class="order-modal-notice">
+        결제 후 48시간 이내(1:1 상담은 일정 협의 후) 결과를 이메일로 전달드립니다.<br>
+        입력하신 정보는 사주·타로 해석 목적으로만 사용됩니다.
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  const BASE = 'https://pub-7fc2c272c90746558b6db7d90ce67837.r2.dev';
+  const videos = [
+    `${BASE}/KakaoTalk_20260519_225004607.mp4`,
+    `${BASE}/KakaoTalk_20260519_225013901.mp4`,
+    `${BASE}/Kakaotalk_20260519_225023574.mp4`,
+  ];
+
+  let currentIndex = -1;
+
+  function playRandom() {
+    let next;
+    do { next = Math.floor(Math.random() * videos.length); }
+    while (next === currentIndex && videos.length > 1);
+    currentIndex = next;
+    const video = document.getElementById('expert-video');
+    video.src = videos[currentIndex];
+    video.load();
+    video.play().catch(() => {});
+  }
+
+  function playNext() {
+    currentIndex = (currentIndex + 1) % videos.length;
+    const video = document.getElementById('expert-video');
+    video.src = videos[currentIndex];
+    video.load();
+    video.play().catch(() => {});
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    playRandom();
+    document.getElementById('expert-video').addEventListener('ended', playRandom);
+  });
+
+  function openOrder(serviceName, price) {
+    const labels = {
+      '사주감수': '전문 사주 감수',
+      '1:1상담': '도인과의 1:1 상담',
+    };
+
+    document.getElementById('order-service-name').textContent = labels[serviceName] || serviceName;
+    document.getElementById('order-service-price').textContent = '₩' + price.toLocaleString();
+
+    const form = document.getElementById('order-form');
+    form.dataset.service = serviceName;
+    form.dataset.price = price;
+
+    document.getElementById('order-modal-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeOrderModal() {
+    document.getElementById('order-modal-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function toggleBirthTime(checkbox) {
+    const timeInput = document.getElementById('order-birth-time');
+    timeInput.disabled = checkbox.checked;
+    if (checkbox.checked) timeInput.value = '';
+  }
+
+  // 오버레이 바깥 클릭 시 닫기
+  document.getElementById('order-modal-overlay').addEventListener('click', (e) => {
+    if (e.target.id === 'order-modal-overlay') closeOrderModal();
+  });
+
+  // ESC 키로 닫기
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeOrderModal();
+  });
+
+  // 예약 폼 제출
+  document.getElementById('order-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const orderData = {
+      service: this.dataset.service,
+      price: Number(this.dataset.price),
+      name: document.getElementById('order-name').value.trim(),
+      contact: document.getElementById('order-contact').value.trim(),
+      birthDate: document.getElementById('order-birth-date').value,
+      birthTime: document.getElementById('order-birth-time').value || null,
+      birthTimeUnknown: document.getElementById('order-time-unknown').checked,
+      question: document.getElementById('order-question').value.trim(),
+    };
+
+    // TODO: 결제(PortOne) 연동 + 백엔드 주문 저장 API 호출 예정
+    console.log('order submit:', orderData);
+    alert('예약 정보가 확인되었습니다.\n결제 연동은 다음 단계에서 추가될 예정입니다.');
+  });
+</script>
+
+</body>
+</html>
