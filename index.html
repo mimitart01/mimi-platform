@@ -1162,6 +1162,7 @@ function showPage(id) {
   document.getElementById('page-' + id).classList.add('active');
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
   window.scrollTo({top:0,behavior:'smooth'});
+  window.location.hash = id;
   const map = {services:'서비스',pricing:'요금제',about:'브랜드 소개',notice:'공지사항',cs:'고객센터'};
   if (map[id]) {
     document.querySelectorAll('.nav-link').forEach(l => {
@@ -1170,6 +1171,17 @@ function showPage(id) {
   }
   return false;
 }
+
+// ── 해시 기반 직접 링크 지원 (TikTok/애드센스 심사용 고유 URL) ──
+function initFromHash() {
+  var hash = window.location.hash.replace('#', '');
+  var validPages = ['home','services','pricing','about','notice','cs','terms','privacy','refund'];
+  if (validPages.includes(hash)) {
+    showPage(hash);
+  }
+}
+window.addEventListener('DOMContentLoaded', initFromHash);
+window.addEventListener('hashchange', initFromHash);
 </script>
 </body>
 </html>
