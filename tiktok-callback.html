@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>TikTok 인증 완료 - Mimitarot</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    max-width: 640px;
+    margin: 80px auto;
+    padding: 0 20px;
+    color: #222;
+    line-height: 1.6;
+  }
+  h1 { font-size: 20px; }
+  .box {
+    background: #f6f6f8;
+    border: 1px solid #e0e0e5;
+    border-radius: 8px;
+    padding: 16px;
+    word-break: break-all;
+    font-family: monospace;
+    font-size: 13px;
+    margin-top: 16px;
+  }
+  .code {
+    background: #fff8e1;
+    border: 1px solid #ffe58f;
+    border-radius: 8px;
+    padding: 16px;
+    word-break: break-all;
+    font-family: monospace;
+    font-size: 13px;
+    margin-top: 16px;
+  }
+  button {
+    margin-top: 12px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background: #fff;
+  }
+  .hint { color: #888; font-size: 13px; margin-top: 24px; }
+</style>
+</head>
+<body>
+  <h1>TikTok 인증 완료</h1>
+  <p>아래에 표시된 <code>code</code> 값을 복사해서 <code>tiktok_step2_exchange_token.py</code>의 <code>CODE</code>에 붙여넣으세요. (유효시간이 짧으니 바로 사용할 것)</p>
+
+  <div class="code">
+    <strong>code:</strong>
+    <div id="codeValue">-</div>
+  </div>
+  <button onclick="copyCode()">code 값 복사</button>
+
+  <p class="hint">전체 URL:</p>
+  <div class="box" id="fullUrl">-</div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code') || '(code 파라미터가 없습니다)';
+    document.getElementById('codeValue').textContent = code;
+    document.getElementById('fullUrl').textContent = window.location.href;
+
+    function copyCode() {
+      navigator.clipboard.writeText(code).then(() => {
+        alert('code 값이 복사되었습니다.');
+      });
+    }
+  </script>
+</body>
+</html>
