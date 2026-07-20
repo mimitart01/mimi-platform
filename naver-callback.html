@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>네이버 로그인 콜백</title>
+<style>
+  body {
+    font-family: -apple-system, "Malgun Gothic", sans-serif;
+    max-width: 640px;
+    margin: 60px auto;
+    padding: 0 20px;
+    color: #222;
+  }
+  h1 { font-size: 20px; }
+  .box {
+    background: #f7f7f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 16px;
+    word-break: break-all;
+  }
+  .label { font-weight: bold; color: #555; font-size: 13px; }
+  .value {
+    font-family: monospace;
+    font-size: 14px;
+    margin-top: 4px;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  button {
+    margin-top: 10px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+  }
+  .error { color: #c0392b; }
+  .hint { color: #888; font-size: 13px; margin-top: 24px; }
+</style>
+</head>
+<body>
+  <h1>네이버 로그인 콜백</h1>
+  <p>아래 값을 복사해서 <code>naver_api_publisher.py --auth &lt;계정명&gt;</code> 실행 시
+     "리디렉션된 전체 URL" 입력란에 <b>이 페이지의 현재 주소창 URL 전체</b>를 그대로 붙여넣으면 됩니다.
+     (아래 code/state는 참고용으로 확인만 하시면 됩니다)</p>
+
+  <div id="result"></div>
+
+  <p class="hint">
+    이 페이지는 서버 없이 브라우저에서만 동작하는 정적 페이지입니다.
+    code 값은 1회성이라 여기서 그냥 보여주기만 하고 별도로 저장하지 않습니다.
+  </p>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("code");
+  const state = params.get("state");
+  const error = params.get("error");
+  const errorDesc = params.get("error_description");
+
+  const resultDiv = document.getElementById("result");
+
+  if (error) {
+    resultDiv.innerHTML = `
+      <div class="box">
+        <p class="error"><b>인증 실패:</b> ${error}</p>
+        <p class="error">${errorDesc || ""}</p>
+      </div>`;
+  } else if (code) {
+    const currentUrl = window.location.href;
+    resultDiv.innerHTML = `
+      <div class="box">
+        <div class="label">code</div>
+        <div class="value">${code}</div>
+        <div class="label" style="margin-top:10px;">state (계정 이름표)</div>
+        <div class="value">${state || "(없음)"}</div>
+        <div class="label" style="margin-top:10px;">현재 페이지 전체 URL (이걸 복사해서 스크립트에 붙여넣으세요)</div>
+        <div class="value">${currentUrl}</div>
+        <button onclick="navigator.clipboard.writeText('${currentUrl}').then(()=>alert('복사되었습니다'))">
+          URL 복사하기
+        </button>
+      </div>`;
+  } else {
+    resultDiv.innerHTML = `
+      <div class="box">
+        <p>code 파라미터가 없습니다. 네이버 로그인 인증 절차를 통해 정상적으로
+           리디렉션된 것이 맞는지 확인해주세요.</p>
+      </div>`;
+  }
+</script>
+</body>
+</html>
